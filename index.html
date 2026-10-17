@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkillSwap - No Cash. Just Credits.</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">SkillSwap</div>
+  <div class="top-right">
+    <div id="userBadge" class="badge">Guest</div>
+    <div id="creditBadge" class="credits">50 CR</div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Trade what you know. Learn what you lack.</h1>
+    <p>No cash moves. Credits move. Campus barter for skills.</p>
+    <div class="hero-row">
+      <input id="loginName" placeholder="Your name, e.g. Aarav">
+      <input id="loginEmail" placeholder="College email">
+      <button id="loginBtn" class="btn primary">Enter</button>
+    </div>
+  </section>
+
+  <section class="grid2">
+    <div class="card">
+      <h2>Post A Skill</h2>
+      <input id="skillTitle" placeholder="Skill title: Guitar Basics" maxlength="40">
+      <input id="skillRate" type="number" min="5" max="100" value="20">
+      <input id="skillBio" placeholder="Short bio: 2 years, weekend slots" maxlength="80">
+      <button id="postBtn" class="btn primary full">Post Skill</button>
+      <div class="hint">New post appears in feed instantly. Stored local.</div>
+    </div>
+
+    <div class="card">
+      <h2>Find A Skill</h2>
+      <div class="search-row">
+        <input id="searchInput" placeholder="Search: guitar, figma, DSA">
+        <button id="searchBtn" class="btn">Go</button>
+        <button id="matchBtn" class="btn ai">AI Match</button>
+      </div>
+      <div id="matchBox"></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Live Feed</h2>
+    <div id="feed" class="feed"></div>
+  </section>
+
+  <section class="grid2">
+    <div class="card">
+      <h2>My Bookings</h2>
+      <div id="bookings"></div>
+    </div>
+    <div class="card">
+      <h2>Chat + Proof + Rating</h2>
+      <div id="chatBox" class="chat">Select a booking to open chat.</div>
+      <div class="chat-row">
+        <input id="chatInput" placeholder="Type message">
+        <button id="chatSend" class="btn">Send</button>
+      </div>
+      <div class="chat-row">
+        <button id="proofBtn" class="btn">Upload Proof</button>
+        <select id="rateSel">
+          <option value="5">Rate 5</option>
+          <option value="4">Rate 4</option>
+          <option value="3">Rate 3</option>
+          <option value="2">Rate 2</option>
+          <option value="1">Rate 1</option>
+        </select>
+        <button id="rateBtn" class="btn primary">Complete + Rate</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Leaderboard</h2>
+    <div id="board"></div>
+    <button id="resetBtn" class="btn small danger">Reset Demo Data</button>
+  </section>
+</main>
+
+<footer>SkillSwap MVP. Frontend only. Credits reset on demand.</footer>
+<script src="app.js"></script>
+</body>
+</html>
