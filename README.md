@@ -58,6 +58,5 @@ Post skill. Earn credits. Spend credits to learn. AI match ranks best tutor in s
 - Clubs + fest stalls
 - AI learning path from swap history
 
-## Team
-Pitch + Demo: Closer
-Build: Hackathon crew
+Build by Vanshita Mishra
+Role : Frontend and PM / Pitch
