@@ -1,3 +1,38 @@
+const narrateBtn = document.getElementById("narrateBtn");
+const NARRATION = [
+  "Hey, what up. This is SkillSwap. No cash, just credits. Campus barter for skills.",
+  "Post a skill you can teach. Earn credits doing it. It lands in the feed live.",
+  "Find a skill you want to learn. Hit AI Match and get top picks ranked in seconds.",
+  "Book a session, chat in app, upload proof, complete, and rate. Credits move. Cash stays out.",
+  "All local for now. No login needed. Just skills swapping. Simple stuff. That's SkillSwap.",
+  "No cash. No backend. Just two students swapping value.",
+  "You start with fifty credits. Earn more by teaching. Spend them learning.",
+  "Your skills are your currency. Someone else's gap is your lesson.",
+  "Fast, local, free. That's the whole pitch."
+];
+let narrating = false;
+let narrIdx = 0;
+
+function speakNext() {
+  if (narrIdx >= NARRATION.length) { narrating = false; return; }
+  const u = new SpeechSynthesisUtterance(NARRATION[narrIdx]);
+  const voices = window.speechSynthesis.getVoices();
+  const female = voices.find(v => /female|zira|samantha|aria|jenny|rhonda|emma/i.test(v.name));
+  if (female) u.voice = female;
+  u.onend = () => { narrIdx++; speakNext(); };
+  u.onerror = () => { narrIdx++; speakNext(); };
+  window.speechSynthesis.speak(u);
+}
+
+function startNarration() {
+  if (narrating) { window.speechSynthesis.cancel(); narrating = false; return; }
+  narrating = true;
+  narrIdx = 0;
+  speakNext();
+}
+
+narrateBtn.addEventListener("click", startNarration);
+window.addEventListener("load", startNarration);
 const LS_SKILLS = "skillswap_skills_v1";
 const LS_USER = "skillswap_user_v1";
 const LS_BOOKS = "skillswap_books_v1";
